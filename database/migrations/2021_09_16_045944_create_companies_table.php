@@ -23,7 +23,6 @@ class CreateCompaniesTable extends Migration
             $table->string('representant',50);
             $table->string('serial_static',50);
             $table->integer('serial_variable')->default(1);
-            $table->timestamps();
         });
     }
 

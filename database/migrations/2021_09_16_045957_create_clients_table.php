@@ -23,7 +23,6 @@ class CreateClientsTable extends Migration
             $table->boolean('final_user')->default(false);
             $table->boolean('isactive')->default(true);
             $table->enum('type',['person','company'])->default('person');
-
             $table->timestamps();
         });
     }

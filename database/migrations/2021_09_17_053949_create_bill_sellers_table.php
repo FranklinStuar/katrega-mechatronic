@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMaintenancesTable extends Migration
+class CreateBillSellersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,20 +13,17 @@ class CreateMaintenancesTable extends Migration
      */
     public function up()
     {
-        Schema::create('maintenances', function (Blueprint $table) {
+        Schema::create('bill_sellers', function (Blueprint $table) {
             $table->id();
-            $table->integer('number')->default(-1);
+            $table->string('serial',30); // serial from config company
             $table->smallInteger('version')->default(1);
+            $table->string('client'); // as json // name, identification, address, email, phone
+            $table->string('values'); // as json // total, subtotal, discount, taxt
             $table->dateTime('date_realized');
             $table->text('details')->default(''); // details as json
+            $table->integer('seller_id')->unsigned()->nullable();
+            $table->enum('status',['active','annulled'])->default('active');  
             $table->string('comment')->nullable(); 
-            $table->string('representant_name')->nullable(); 
-            $table->string('representant_phone')->nullable(); 
-            $table->string('representant_email')->nullable(); 
-            $table->integer('client_id')->unsigned();
-            $table->integer('car_id')->unsigned();
-            $table->integer('proform_id')->unsigned()->nullable();
-            $table->timestamps();
         });
     }
 
@@ -37,6 +34,6 @@ class CreateMaintenancesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('maintenances');
+        Schema::dropIfExists('bill_sellers');
     }
 }

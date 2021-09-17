@@ -20,7 +20,6 @@ class CreateCreditSellerDuesTable extends Migration
             $table->double('capital',8,2)->default(0); // lo que tiene que pagar en la cuota
             $table->double('abono',8,2)->default(0); // cuando hace un adelanto al pago de la cuota 
             $table->smallInteger('status')->default(0); //El estado en el que se encuentra la cuota, 0 = pendiente, se asignara un numero segun se le vea conveniente
-            $table->timestamps();
         });
     }
 

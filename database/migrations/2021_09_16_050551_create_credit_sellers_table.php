@@ -23,8 +23,6 @@ class CreateCreditSellersTable extends Migration
             $table->dateTime('fecha_pagado')->nullable(); // fecha real en la que se termina de pagar
             $table->smallInteger('status')->default(0); //El estado en el que se encuentra el pago, 0 = pendiente, se asignara un numero segun se le vea conveniente
             $table->integer('seller_id')->unsigned();
-            
-            $table->timestamps();
         });
     }
 

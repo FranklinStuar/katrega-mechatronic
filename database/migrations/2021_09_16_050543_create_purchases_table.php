@@ -27,7 +27,6 @@ class CreatePurchasesTable extends Migration
             $table->dateTime('date_realized');
             $table->text('details')->default(''); // details as json
             $table->string('comment')->nullable();
-            $table->timestamps();
         });
     }
 

@@ -22,6 +22,7 @@ class CreateCarsTable extends Migration
             $table->integer('millage_next')->default(0);
             $table->string('description');
             $table->boolean('isactive')->default(true);
+            $table->integer('client_id')->unsigned();
             $table->timestamps();
         });
     }

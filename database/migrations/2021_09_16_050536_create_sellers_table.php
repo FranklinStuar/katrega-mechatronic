@@ -29,10 +29,10 @@ class CreateSellersTable extends Migration
             $table->dateTime('date_realized');
             $table->text('details')->default(''); // details as json
             $table->integer('proform_id')->unsigned()->nullable();
+            $table->integer('order_id')->unsigned()->nullable();
             $table->enum('status',['active','annulled'])->default('active');  
             $table->string('comment')->nullable(); 
             $table->integer('credit_seller_id')->unsigned()->nullable();
-            $table->timestamps();
         });
     }
 
