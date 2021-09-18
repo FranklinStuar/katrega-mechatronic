@@ -22,6 +22,7 @@ class CreateOrdersTable extends Migration
             $table->integer('proform_id')->unsigned()->nullable();
             $table->integer('maintenance_id')->unsigned()->nullable();
             $table->string('comment')->nullable(); 
+            $table->text('details')->default('{}'); // details as json
             $table->timestamps();
         });
     }

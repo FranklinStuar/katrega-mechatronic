@@ -20,7 +20,7 @@ class CreateBillSellersTable extends Migration
             $table->string('client'); // as json // name, identification, address, email, phone
             $table->string('values'); // as json // total, subtotal, discount, taxt
             $table->dateTime('date_realized');
-            $table->text('details')->default(''); // details as json
+            $table->text('details')->default('{}'); // details as json
             $table->integer('seller_id')->unsigned()->nullable();
             $table->enum('status',['active','annulled'])->default('active');  
             $table->string('comment')->nullable(); 

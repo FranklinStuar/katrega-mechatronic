@@ -27,7 +27,7 @@ class CreateSellersTable extends Migration
             $table->double('subtotal_tax',8,2)->default(0);  
             $table->double('total',8,2)->default(0);  
             $table->dateTime('date_realized');
-            $table->text('details')->default(''); // details as json
+            $table->text('details')->default('{}'); // details as json
             $table->integer('proform_id')->unsigned()->nullable();
             $table->integer('order_id')->unsigned()->nullable();
             $table->enum('status',['active','annulled'])->default('active');  

@@ -31,6 +31,8 @@ class CreateProductsTable extends Migration
             $table->double('price',8,2)->default(0);
             $table->boolean('isactive')->default(true);
             $table->string('comments')->nullable();
+            $table->smallInteger('reserved')->default(0);
+            $table->string('reserved_details')->default("{}");
             $table->timestamps();
         });
     }

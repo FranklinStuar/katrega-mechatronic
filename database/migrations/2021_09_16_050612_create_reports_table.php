@@ -16,7 +16,7 @@ class CreateReportsTable extends Migration
         Schema::create('reports', function (Blueprint $table) {
             $table->id();
             $table->string('page',30); //page of report
-            $table->text('details')->default(''); // details as json
+            $table->text('details')->default('{}'); // details as json
             $table->timestamps();
         });
     }

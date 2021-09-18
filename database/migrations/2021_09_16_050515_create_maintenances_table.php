@@ -18,7 +18,7 @@ class CreateMaintenancesTable extends Migration
             $table->integer('number')->default(-1);
             $table->smallInteger('version')->default(1);
             $table->dateTime('date_realized');
-            $table->text('details')->default(''); // details as json
+            $table->text('details')->default('{}'); // details as json
             $table->string('comment')->nullable(); 
             $table->string('representant_name')->nullable(); 
             $table->string('representant_phone')->nullable(); 

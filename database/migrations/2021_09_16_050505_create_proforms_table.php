@@ -27,7 +27,7 @@ class CreateProformsTable extends Migration
             $table->double('subtotal_tax',8,2)->default(0);  
             $table->double('total',8,2)->default(0);  
             $table->dateTime('date_realized');
-            $table->text('details')->default(''); // details as json
+            $table->text('details')->default('{}'); // details as json
             $table->string('comment')->nullable();  
         });
     }
