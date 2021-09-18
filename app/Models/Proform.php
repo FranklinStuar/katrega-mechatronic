@@ -4,10 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Client;
 
 class Proform extends Model
 {
     use HasFactory;
+    public $timestamps = false;
     protected $fillable = [
         'number',
         'version',
@@ -24,5 +26,29 @@ class Proform extends Model
         'details',
         'comment'
     ];
-    public $timestamps = false;
+
+    public function client(){
+        return $this->belongsTo(Client::class);
+    }
+
+    public function addItem($item){
+        $details = json_decode($this->details, true);
+        $details = Arr::add($details,$item);
+        $this->update([
+            'details'=>json_encode($details)
+        ]);
+    }
+    public function updateItem($index, $item){
+        $details = json_decode($this->details, true);
+        $details[$index] = $item;
+        $this->update([
+            'details'=>json_encode($details)
+        ]);
+    }
+    public function removeItem($index, $item){
+        $details = json_decode($this->details, true);
+        $this->update([
+            'details'=>json_encode(Arr::except($details, [$index]))
+        ]);
+    }
 }

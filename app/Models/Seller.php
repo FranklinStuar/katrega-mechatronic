@@ -4,6 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\BillSeller;
+use App\Models\Client;
+use App\Models\Proform;
+use App\Models\Order;
+use App\Models\CreditSeller;
 
 class Seller extends Model
 {
@@ -29,4 +34,25 @@ class Seller extends Model
         'comment',
         'credit_seller_id'
     ];
+
+    public function client(){
+        return $this->belongsTo(Client::class);
+    }
+    
+    public function proform(){
+        return $this->belongsTo(Proform::class);
+    }
+    
+    public function order(){
+        return $this->belongsTo(Order::class);
+    }
+    
+    public function credit_seller(){
+        return $this->belongsTo(CreditSeller::class);
+    }
+    
+    public function bill(){
+        return $this->hasOne(BillSeller::class);
+    }
+    
 }

@@ -11,4 +11,7 @@ class Company extends Model
     protected $fillable = ['name','identification','address','phone','logo','representant','serial_static','serial_variable'];
     public $timestamps = false;
 
+    public static function principal(){
+        return Company::first();
+    }
 }
