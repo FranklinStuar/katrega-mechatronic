@@ -33,7 +33,7 @@
         </li>
       </ul>
     </div>
-    @hasSection('breadcrumb-item')
+    @hasSection('breadcrumb-items')
       <div class="header-divider"></div>
       <div class="container-fluid">
         <nav aria-label="breadcrumb">
