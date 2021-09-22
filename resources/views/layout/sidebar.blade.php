@@ -50,11 +50,11 @@
           </svg> Clientes</a></li>
 
       <li class="nav-title">Stock</li>
-      <li class="nav-item"><a class="nav-link" href="{{url("/")}}">
+      <li class="nav-item"><a class="nav-link" href="{{route("products.index")}}">
           <svg class="nav-icon">
             <use xlink:href="{{url("vendors/@coreui/icons/svg/free.svg#cil-pencil")}}"></use>
           </svg>Productos</a></li>
-      <li class="nav-item"><a class="nav-link" href="{{url("/")}}">
+      <li class="nav-item"><a class="nav-link" href="{{route("services.index")}}">
           <svg class="nav-icon">
             <use xlink:href="{{url("vendors/@coreui/icons/svg/free.svg#cil-pencil")}}"></use>
           </svg>Servicios</a></li>
