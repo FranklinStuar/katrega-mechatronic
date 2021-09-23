@@ -67,16 +67,16 @@
         <div class="row">
             <div class="col mb-3">
                 <label for="cost" class="form-label">Precio de Compra *</label>
-                <input type="number" min="0" step="0.01" name="cost" class="form-control" id="cost" value="0" required>
+                <input type="number" min="0" step="0.01" name="cost" value="{{$product->cost}}" class="form-control" id="cost" value="0" required>
             </div>
             <div class="col mb-3">
                 <label for="price" class="form-label">Precio de venta *</label>
-                <input type="number" min="0" step="0.01" name="price" class="form-control" id="price" value="0" required>
+                <input type="number" min="0" step="0.01" name="price" value="{{$product->price}}" class="form-control" id="price" value="0" required>
             </div>
         </div>
         <div class="mb-3">
             <label for="stock" class="form-label">Stock Actual *</label>
-            <input type="number" step="0.01" name="stock" class="form-control" id="stock" value="0" required>
+            <input type="number" step="0.01" name="stock" value="{{$product->stock}}" class="form-control" id="stock" value="0" required>
             <div id="stockHelp" class="form-text">Si se ha vendido y no hubo stock disponible, se indicará en negativo. Válido solo cuando esté activo el permiso de vender sin stock</div>
         </div>
     </div>
@@ -84,7 +84,7 @@
 <hr>
 <div class="mb-3">
     <label for="comments" class="form-label">Comentarios adicionales</label>
-    <textarea name="comments" rows="3" class="form-control" id="comments" aria-describedby="commentsHelp"></textarea>
+    <textarea name="comments" rows="3" class="form-control" id="comments" aria-describedby="commentsHelp">{{$product->comments}}</textarea>
     <div id="commentsHelp" class="form-text">Estos comentarios aparecerán en la lista de búsqueda de productos para compras y ventas</div>
 </div>
 

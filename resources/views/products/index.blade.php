@@ -47,8 +47,8 @@
               <td><span class="@if($product->isactive) text-success @else text-danger @endif">@if($product->isactive) Activo @else Inactivo @endif</span> </td>
               <td>
                 <a href="{{route("products.edit",$product->id)}}" class="btn"><i class="fas fa-pencil-alt"></i></a>
-                <a href="#" class="btn"><i class="fas fa-trash"></i></a>
-                <a href="#" class="btn"><i class="fas fa-eye"></i></a>
+                <a href="{{route("products.confirm-delete",$product->id)}}" class="btn"><i class="fas fa-trash"></i></a>
+                <a href="{{route("products.show",$product->id)}}" class="btn"><i class="fas fa-eye"></i></a>
               </td>
             </tr>
             @endforeach

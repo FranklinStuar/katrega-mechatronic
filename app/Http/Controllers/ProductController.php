@@ -14,7 +14,7 @@ class ProductController extends Controller
 
     public function create(){
         $product = new Product;
-        $product->code = "mc".Product::count();
+        $product->code = "mc0".(Product::count()+1);
         $product->cost = 0;
         $product->price = 0;
         $product->stock = 0;
@@ -81,4 +81,30 @@ class ProductController extends Controller
         return redirect()->route("products.index");
     }
 
+    public function delete($id){
+        try {
+            $product = Product::findOrfail($id);
+            return view('products.delete',compact("product"));
+        } catch (\Throwable $th) {
+            return redirect()->back();
+        }
+    }
+    
+    public function destroy($id){
+        try {
+            $product = Product::findOrfail($id);
+            $product->delete();
+        } catch (\Throwable $th) {
+        }
+        return redirect()->route("products.index");
+    }
+    
+    public function show($id){
+        try {
+            $product = Product::findOrfail($id);
+            return view('products.show',compact("product"));
+        } catch (\Throwable $th) {
+        }
+        return redirect()->route("products.index");
+    }
 }
