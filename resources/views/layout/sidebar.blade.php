@@ -44,7 +44,7 @@
           <svg class="nav-icon">
             <use xlink:href="{{url("vendors/@coreui/icons/svg/free.svg#cil-drop")}}"></use>
           </svg> Vehículos</a></li>
-      <li class="nav-item"><a class="nav-link" href="{{url("/")}}">
+      <li class="nav-item"><a class="nav-link" href="{{route("clients.index")}}">
           <svg class="nav-icon">
             <use xlink:href="{{url("vendors/@coreui/icons/svg/free.svg#cil-drop")}}"></use>
           </svg> Clientes</a></li>
@@ -97,8 +97,8 @@
             <use xlink:href="{{url("vendors/@coreui/icons/svg/free.svg#cil-cursor")}}"></use>
           </svg> Configuración</a>
         <ul class="nav-group-items">
-          <li class="nav-item"><a class="nav-link" href="buttons/buttons.html"><span class="nav-icon"></span> Empresa</a></li>
-          <li class="nav-item"><a class="nav-link" href="buttons/button-group.html"><span class="nav-icon"></span> Perfil</a></li>
+          <li class="nav-item"><a class="nav-link" href="{{url("/")}}"><span class="nav-icon"></span> Empresa</a></li>
+          <li class="nav-item"><a class="nav-link" href="{{url("/")}}"><span class="nav-icon"></span> Perfil</a></li>
         </ul>
       </li>
       <li class="nav-divider"></li>
