@@ -41,6 +41,7 @@ class ServiceController extends Controller
             'isactive' => $request->has("isactive"),
             'comments' => $request->comments,
         ]);
+        \Session::flash('success', 'Servicio agregado correctamente');
         return redirect()->route("services.index");
     }
     
@@ -49,6 +50,7 @@ class ServiceController extends Controller
             $service = Product::findOrfail($id);
             return view('services.edit',compact("service"));
         } catch (\Throwable $th) {
+                \Session::flash('error', $th->getMessage());
             return redirect()->back();
         }
     }
@@ -67,6 +69,7 @@ class ServiceController extends Controller
             'isactive' => $request->has("isactive"),
             'comments' => $request->comments,
         ]);
+        \Session::flash('success', 'Servicio actualizado correctamente');
         return redirect()->route("services.index");
     }
 
@@ -75,6 +78,7 @@ class ServiceController extends Controller
             $service = Product::findOrfail($id);
             return view('services.delete',compact("service"));
         } catch (\Throwable $th) {
+            \Session::flash('error', $th->getMessage());
             return redirect()->back();
         }
     }
@@ -83,7 +87,9 @@ class ServiceController extends Controller
         try {
             $service = Product::findOrfail($id);
             $service->delete();
+            \Session::flash('success', 'Servicio eliminado correctamente');
         } catch (\Throwable $th) {
+            \Session::flash('error', $th->getMessage());
         }
         return redirect()->route("services.index");
     }
@@ -93,6 +99,7 @@ class ServiceController extends Controller
             $service = Product::findOrfail($id);
             return view('services.show',compact("service"));
         } catch (\Throwable $th) {
+            \Session::flash('error', $th->getMessage());
         }
         return redirect()->route("services.index");
     }

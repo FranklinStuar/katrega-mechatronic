@@ -46,6 +46,7 @@ class ProductController extends Controller
             'isactive' => $request->has("isactive"),
             'comments' => $request->comments,
         ]);
+        \Session::flash('success', 'Producto agregado correctamente');
         return redirect()->route("products.index");
     }
     
@@ -54,6 +55,7 @@ class ProductController extends Controller
             $product = Product::findOrfail($id);
             return view('products.edit',compact("product"));
         } catch (\Throwable $th) {
+            \Session::flash('error', $th->getMessage());
             return redirect()->back();
         }
     }
@@ -78,6 +80,7 @@ class ProductController extends Controller
             'isactive' => $request->has("isactive"),
             'comments' => $request->comments,
         ]);
+        \Session::flash('success', 'Producto actualizado correctamente');
         return redirect()->route("products.index");
     }
 
@@ -86,6 +89,7 @@ class ProductController extends Controller
             $product = Product::findOrfail($id);
             return view('products.delete',compact("product"));
         } catch (\Throwable $th) {
+            \Session::flash('error', $th->getMessage());
             return redirect()->back();
         }
     }
@@ -94,7 +98,9 @@ class ProductController extends Controller
         try {
             $product = Product::findOrfail($id);
             $product->delete();
+            \Session::flash('success', 'Producto eliminado correctamente');
         } catch (\Throwable $th) {
+            \Session::flash('error', $th->getMessage());
         }
         return redirect()->route("products.index");
     }
@@ -104,6 +110,7 @@ class ProductController extends Controller
             $product = Product::findOrfail($id);
             return view('products.show',compact("product"));
         } catch (\Throwable $th) {
+            \Session::flash('error', $th->getMessage());
         }
         return redirect()->route("products.index");
     }

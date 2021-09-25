@@ -29,6 +29,7 @@ class ClientController extends Controller
             'type' => $request->type,
             'isactive' => $request->has("isactive"),
         ]);
+        \Session::flash('success', 'Cliente creado correctamente');
         return redirect()->route("clients.index");
     }
     
@@ -37,6 +38,7 @@ class ClientController extends Controller
             $client = Client::findOrfail($id);
             return view('clients.edit',compact("client"));
         } catch (\Throwable $th) {
+            \Session::flash('error', $th->getMessage());
             return redirect()->back();
         }
     }
@@ -52,6 +54,7 @@ class ClientController extends Controller
             'type' => $request->type,
             'isactive' => $request->has("isactive"),
         ]);
+        \Session::flash('success', 'Cliente actualizado correctamente');
         return redirect()->route("clients.index");
     }
 
@@ -60,6 +63,7 @@ class ClientController extends Controller
             $client = Client::findOrfail($id);
             return view('clients.delete',compact("client"));
         } catch (\Throwable $th) {
+            \Session::flash('error', $th->getMessage());
             return redirect()->back();
         }
     }
@@ -68,7 +72,9 @@ class ClientController extends Controller
         try {
             $client = Client::findOrfail($id);
             $client->delete();
+            \Session::flash('success', 'Cliente eliminado correctamente');
         } catch (\Throwable $th) {
+            \Session::flash('error', $th->getMessage());
         }
         return redirect()->route("clients.index");
     }
@@ -78,6 +84,7 @@ class ClientController extends Controller
             $client = Client::findOrfail($id);
             return view('clients.show',compact("client"));
         } catch (\Throwable $th) {
+            \Session::flash('error', $th->getMessage());
         }
         return redirect()->route("clients.index");
     }

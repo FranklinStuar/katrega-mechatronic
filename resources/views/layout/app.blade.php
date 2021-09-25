@@ -51,6 +51,21 @@
             <h1 class="title-content">@yield('title-page')</h1>
           @endif
 
+          @if(session()->has('success'))
+          <div class="alert alert-info">
+              {{ session('success') }}
+          </div>
+      @elseif(session()->has('error'))
+          <div class="alert alert-danger">
+              {{ session('error') }}
+          </div>
+      @elseif(session()->has('errors'))
+          <div class="alert alert-danger">
+              @foreach (session('errors') as $error)
+                  {{ session('error') }}
+              @endforeach
+          </div>
+      @endif
           @yield('content')
         </div>
       </div>
